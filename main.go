@@ -1,24 +1,23 @@
 package main
 
 import (
-    "golang_backend/config"
-    "golang_backend/handler"
-    "golang_backend/model"
+	"github.com/farinchan/thesis-attendance-backend/config"
+	"github.com/farinchan/thesis-attendance-backend/handler"
 
-    "github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
-    app := fiber.New()
+	app := fiber.New()
 
-    config.ConnectDB()
-    // config.DB.AutoMigrate(&model.User{})
+	config.ConnectDB()
+	// config.DB.AutoMigrate(&model.User{})
 
-    app.Post("/users", handler.CreateUser)
-    app.Get("/users", handler.GetUsers)
-    app.Get("/users/:id", handler.GetUser)
-    app.Put("/users/:id", handler.UpdateUser)
-    app.Delete("/users/:id", handler.DeleteUser)
+	app.Get("/server", func(c *fiber.Ctx) error {
+		return c.JSON(fiber.Map{
+			"message": "Server is running"})
+	})
+	app.Post("/checkin", handler.AttendanceCheckin)
 
-    app.Listen(":3000")
+	app.Listen(":3000")
 }
