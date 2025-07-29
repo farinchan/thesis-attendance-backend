@@ -17,3 +17,6 @@ type StudentAttendance struct {
 	UpdatedAt   time.Time  `json:"updated_at" gorm:"autoUpdateTime"`
 }
 
+func (StudentAttendance) TableName() string {
+	return "student_attendance"
+}

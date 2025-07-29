@@ -12,3 +12,6 @@ type StudentAttendanceRule struct {
 	// Additional fields can be added as needed
 }
 
+func (StudentAttendanceRule) TableName() string {
+	return "student_attendance_rule"
+}
