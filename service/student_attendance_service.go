@@ -12,3 +12,7 @@ func GetStudentAttendanceBystudentIdAndDate(studentId uint64, date string) (mode
 func CreateStudentAttendance(attendance *model.StudentAttendance) error {
 	return repository.CreateStudentAttendance(attendance)
 }
+
+func UpdateStudentAttendance(attendance *model.StudentAttendance) error {
+	return repository.UpdateStudentAttendance(attendance)
+}

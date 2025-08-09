@@ -14,3 +14,7 @@ func GetStudentAttendanceByStudentIdAndDate(studentId uint64, date string) (mode
 func CreateStudentAttendance(attendance *model.StudentAttendance) error {
 	return config.DB.Create(attendance).Error
 }
+
+func UpdateStudentAttendance(attendance *model.StudentAttendance) error {
+	return config.DB.Save(attendance).Error
+}

@@ -18,6 +18,7 @@ func main() {
 			"message": "Server is running"})
 	})
 	app.Post("/checkin", handler.AttendanceCheckin)
+	app.Post("/checkout", handler.AttendanceCheckout)
 
 	app.Listen(":3000")
 }
